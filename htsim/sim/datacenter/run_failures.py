@@ -8,7 +8,7 @@ import argparse
 link_speed = 400 * 1000
 
 #script_template = "./htsim_uec -mixed_lb_traffic -sack_threshold 4000 -load_balancing_algo {algo} -tm {tm_file} {other_stuff} -end 9000 -seed 42 -paths {paths} {cc_strat} {trimming_strat} -topo {topo_file} -enable_qa_gate -linkspeed 400000 -ecn 25 75 -q 100 -cwnd 140 > {output_dir}/{output_file}"
-script_template = "./htsim_uec -connections_mapping {trim} -sack_threshold 4000 {failures_input} {fail_type} {fail_part} -load_balancing_algo {algo} -tm {tm_file} {other_stuff} -end 90000 -seed 42 -paths {paths} {cc_strat} {trimming_strat} -topo {topo_file} -linkspeed 400000 -ecn {kmin} {kmax} -q {queue} -cwnd {cwnd} > {output_dir}/{output_file}"
+script_template = "./htsim_uec -connections_mapping {trim} -sack_threshold 4000 {failures_input} {fail_type} {fail_part} -load_balancing_algo {algo} -tm {tm_file} {other_stuff} -end 90000 -seed 42 -paths {paths} {cc_strat} {trimming_strat} -topo {topo_file} -linkspeed 400000 -ecn {kmin} {kmax} -q {queue} -other_location -cwnd {cwnd} > {output_dir}/{output_file}"
 tm_template = "connection_matrices/permutation_size{size}B.cm"
 
 message_sizes = [4194304*2]
@@ -30,7 +30,7 @@ failure_modes = ["5_percent_failed_switches_and_cables.txt", "5_percent_failed_s
 def getBDP(link_speed, tiers, link_delay):
     link_speed = link_speed / 1000
     network_rtt = link_delay * (tiers * 2 * 2) + (tiers * 2 * (4096 * 8 / link_speed))
-    print(f"Network RTT: {network_rtt}")
+    #print(f"Network RTT: {network_rtt}")
     return network_rtt * link_speed / 8 / 4096
 
 def getRunScript(dir_name, trim_string, cc_algo, oversubscription, size, drop, tm_file, output_file, main_folder, lb_algo, num_entropy, failure_type):
@@ -86,7 +86,7 @@ def getRunScript(dir_name, trim_string, cc_algo, oversubscription, size, drop, t
 
     
     command = script_template.format(trim=trim_string , failures_input=failure_param, other_stuff=other, fail_part=fail_part, queue=int(queue_size), kmin=ecn_min, kmax=ecn_max, cwnd=int(queue_size*1.5), fail_type=failure_type, algo=lb_algo, paths=num_entropy, tm_file=tm_file, cc_strat=cc_algo, trimming_strat=drop, topo_file=topo_file_name, output_file=output_file, output_dir=dir_name)
-    print(f"Running command: {command}")
+    #print(f"Running command: {command}")
     return command
 
 # Function to run a command using subprocess

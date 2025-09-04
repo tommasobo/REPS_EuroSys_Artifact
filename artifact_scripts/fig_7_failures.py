@@ -19,7 +19,7 @@ for directory in [
     os.makedirs(directory, exist_ok=True)
 
 os.chdir("../htsim/sim/datacenter")
-os.system("python3 run_all_asy.py --save_folder ../../../artifact_results/fig_7_failures/plots/ --filename microbenchmarks")
-os.system("python3 run_all_asy.py --save_folder ../../../artifact_results/fig_7_failures/plots/ --filename dc")
-os.system("python3 run_all_asy.py --save_folder ../../../artifact_results/fig_7_failures/plots/ --filename ai")
+os.system("python3 run_all_failure.py --save_folder ../../../artifact_results/fig_7_failures/plots/ --filename microbenchmarks")
+os.system("python3 run_all_failure.py --save_folder ../../../artifact_results/fig_7_failures/plots/ --filename dc")
+os.system("python3 run_all_failure.py --save_folder ../../../artifact_results/fig_7_failures/plots/ --filename ai")
 

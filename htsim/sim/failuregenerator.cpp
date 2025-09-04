@@ -470,6 +470,11 @@ void failuregenerator::read_failure_list() {
     //
     printf("Filename: %s\n", filename_input.c_str());
     string filename_full = "../htsim/sim/failures_input/saved/saved_switch" + filename_input;
+    if (other_loc) {
+        filename_full = "../failures_input/saved/saved_switch" + filename_input;
+    } else {
+        filename_full = "../htsim/sim/failures_input/saved/saved_switch" + filename_input;
+    }
      // Check if the file exists
     std::ifstream infileCheck(filename_full);
     if (!infileCheck) {
@@ -502,6 +507,14 @@ void failuregenerator::read_failure_list() {
     //
     printf("Filename: %s\n", filename_input.c_str());
     string filename_full_cable = "../htsim/sim/failures_input/saved/saved_cable" + filename_input;
+
+    if (other_loc) {
+        filename_full_cable = "../failures_input/saved/saved_cable" + filename_input;
+    } else {
+        filename_full_cable = "../htsim/sim/failures_input/saved/saved_cable" + filename_input;
+    }
+
+
      // Check if the file exists
     std::ifstream infileCheckCable(filename_full_cable);
     if (!infileCheckCable) {
@@ -563,7 +576,14 @@ void failuregenerator::save_failure_list() {
     std::string filename_input = failures_input_file_path.substr(pos + 1);
 
     printf("Filename: %s\n", filename_input.c_str());
-    std::ofstream outfile("../htsim/sim/failures_input/saved/saved_switch" + filename_input);
+
+    std::ofstream outfile;
+    if (other_loc) {
+        outfile.open("../failures_input/saved/saved_switch" + filename_input);
+    } else {
+        outfile.open("../htsim/sim/failures_input/saved/saved_switch" + filename_input);
+    }
+    
     // Check if the file is opened successfully
     if (!outfile) {
         std::cerr << "Error opening file!" << std::endl;
@@ -585,6 +605,13 @@ void failuregenerator::save_failure_list() {
     std::string filename_input1 = failures_input_file_path.substr(pos1 + 1);
     printf("Filename: %s\n", filename_input1.c_str());
     std::string cable_filename = "../htsim/sim/failures_input/saved/saved_cable" + filename_input1;
+
+    if (other_loc) {
+        cable_filename = "../failures_input/saved/saved_cable" + filename_input1;
+    } else {
+        cable_filename = "../htsim/sim/failures_input/saved/saved_cable" + filename_input1;
+    }
+
     std::ofstream outfile1(cable_filename);
 
     printf("Filename: %s\n", cable_filename.c_str());

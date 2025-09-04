@@ -15,6 +15,8 @@ parser.add_argument('--dont_show', action='store_true', help='Not save fig')
 parser.add_argument('--save_folder', required=True, help='Save Folder for the experiment', default="")
 parser.add_argument('--text', required=True, help='Name Title', default="")
 parser.add_argument('--disable_legends', action='store_true', help='Disable all legends in the plot')  # Add option to disable legends
+parser.add_argument('--filename',    default=None,
+                    help='optional filename to pass to plot_symmetric')
 args = parser.parse_args()
 
 # Initialize the main folder path
@@ -115,13 +117,13 @@ static_color_mapping = {
 # Iterate through each subfolder in the specified folder
 for subfolder in folder_path.iterdir():
     if subfolder.is_dir():
-        print(f"Subfolder: {subfolder.name}")
+        #print(f"Subfolder: {subfolder.name}")
         if ( "degrade" in subfolder.name):
             continue
         for file in subfolder.iterdir():
             if file.is_file() and file.suffix == '.txt':
                 failure_case = str(subfolder).split('_')[-1].strip()
-                print(failure_case)
+                #print(failure_case)
                 failure_case = get_fancy_name_wl(failure_case)
                 
                 full_path_file = str(folder_path / subfolder.name / file.name)
@@ -162,7 +164,7 @@ for subfolder in folder_path.iterdir():
                         if ("coll" in args.name):
                             with open(full_path_file, 'r') as file:
                                 max_fct = get_last_flow_time(file.read())
-                                print(max_fct)
+                                #print(max_fct)
 
                         if len(fct_list) > 0:
                             data.append({
@@ -187,7 +189,7 @@ baseline = df[df['LB Name'].str.contains('OPS', case=False)].set_index('Failure 
 # Calculate speedup with error handling for missing baseline values
 df['Speedup'] = df.apply(lambda row: baseline.get(row['Failure Mode'], np.nan) / row['Max FCT'] if row['Failure Mode'] in baseline.index else np.nan, axis=1)
 
-print(df['Speedup'])
+#print(df['Speedup'])
 # Define markers and sizes for Entropy levels
 markers = {256: 'o', 65535: 'D'}  # Circle for 256, diamond for 65535
 sizes = {256: 370, 65535: 370, 4096: 370}    # Marker sizes: 140 for 256, 370 for 65535
@@ -234,7 +236,7 @@ sns.scatterplot(
 )
 
 # Customizing the plot
-print("GIVEN TEXT IS: {}".format(args.text))
+#print("GIVEN TEXT IS: {}".format(args.text))
 plt.xlabel(f'{args.text}', fontsize=18)  # Increased x-axis label font size
 plt.ylabel('Failure Mode', fontsize=18)  # Increased y-axis label font size
 plt.axvline(x=1, color='grey', linestyle='--', linewidth=1.5)  # Increased line width
@@ -280,14 +282,13 @@ lb_name_legend = plt.legend(
 #plt.gca().add_artist(lb_name_legend)
 plt.grid(True, which='both', linestyle=':', linewidth=0.75, alpha=0.75)  # Dotted lines with reduced visibility
 
-output_name = "paper_res/fail"
-if (args.name != ""):
-    output_name = "def_res/{}_fail".format(args.name)
+output_name = "failures"
+
+if (args.filename is not None):
+    output_name = args.filename
 
 os.system(f"mkdir -p {args.save_folder}")
-os.system(f"mkdir -p {args.save_folder}/{output_name}")
 
-print("saving to {}".format(f"{args.save_folder}/{output_name}.png"))
 plt.savefig(f"{args.save_folder}/{output_name}.png", bbox_inches='tight')
 plt.savefig(f"{args.save_folder}/{output_name}.pdf", bbox_inches='tight')
 

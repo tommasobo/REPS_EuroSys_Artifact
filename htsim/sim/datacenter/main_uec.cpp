@@ -188,6 +188,8 @@ int main(int argc, char **argv) {
             _collect_data = true;
         } else if (!strcmp(argv[i],"-save_rtt")) {
             UecSrc::_save_rtt = true;
+        } else if (!strcmp(argv[i],"-other_location")) {
+            FAILURE_GENERATOR->other_loc = true;
         } else if (!strcmp(argv[i],"-connections_mapping")) {
             UecSrc::_connections_mapping = true;
         } else if (!strcmp(argv[i],"-log_link")) {

@@ -14,6 +14,7 @@
 class failuregenerator {
 
   public:
+    bool other_loc = false;
     simtime_picosec stop_failures_after = UINT64_MAX;
     uint64_t nr_total_packets = 0;
     uint64_t nr_dropped_packets = 0;

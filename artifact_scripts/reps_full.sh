@@ -3,8 +3,10 @@
 python3 fig_1_symmertic_micro.py
 python3 fig_2_symmetric.py
 python3 fig_3_asymmertic_micro.py
+python3 fig_4_asymmetric.py
 python3 fig_5_bg_traffic.py
 python3 fig_6_failures_micro.py
+python3 fig_7_failures.py
 python3 fig_8_extreme_failures.py
 python3 fig_9_real_hw_1.py
 python3 fig_10_real_hw_2.py

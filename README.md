@@ -4,22 +4,27 @@ Next-generation datacenters require highly efficient network load balancing to m
 # Installing Requirements
 From the repository root, install the required Python packages using the command below. To avoid conflicts with local packages, we recommend running it inside a clean Python environment created with ```venv```.
 ```
+python3 -m venv .venv
+source .venv/bin/activate
 ./reps_pkg_install.sh
 ```
 
-Then compile the project. Run the following command from the ```/sim``` directory (feel free to adjust the number of parallel jobs).
+Then compile the project. Run the following command from the ```/htsim/sim``` directory (feel free to adjust the number of parallel jobs).
 
 ```
 make clean && cd datacenter/ && make clean && cd .. && make -j 8 && cd datacenter/ && make -j 8 && cd ..
 ```
 
 # Testing the artifacts
-To test the artifacts we provide a series of bash files that can be run from the ```artifact_scripts/``` directory of the project.
+To test the artifacts we provide a series of Bash files that can be run from the ```artifact_scripts/``` directory of the project.
 
 - ```reps_quick.sh``` which runs quickly (less than 2 hour) and generates Figure 1, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14.
 - ```reps_medium.sh``` which runs slower (around 6 hours) and generates Figure 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14.
-- ```reps_full.sh ``` which runs all the experiments of the paper but takes very long (potentially up to a day).
+- ```reps_full.sh``` which runs all the experiments of the paper but takes very long (potentially up to a day).
 
 Exact running times depend on HW performance.
 
-Results are automatically generated in the ```artifact_results/``` folder.
+Alternatively, the user can run individual runs using the corresponding Python script from inside the ```artifact_scripts/``` folder.
+
+# Results
+Results are automatically generated in the ```artifact_results/``` folder. There, each experiment will have its own subfolder with the plots and raw_data (if applicable).
