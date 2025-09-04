@@ -1,0 +1,7 @@
+Nodes 128
+Connections 4
+0->70 start 0 size 20000000
+1->71 start 0 size 20000000
+2->72 start 0 size 20000000
+3->73 start 0 size 20000000
+

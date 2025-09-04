@@ -1,0 +1,34 @@
+Nodes 1024
+Connections 32
+0->1023 id 1 start 0 size 33550336
+1->1022 id 2 start 0 size 33550336
+2->1021 id 3 start 0 size 33550336
+3->1020 id 4 start 0 size 33550336
+4->1019 id 5 start 0 size 33550336
+5->1018 id 6 start 0 size 33550336
+6->1017 id 7 start 0 size 33550336
+7->1016 id 8 start 0 size 33550336
+8->1015 id 9 start 0 size 33550336
+9->1014 id 10 start 0 size 33550336
+10->1013 id 11 start 0 size 33550336
+11->1012 id 12 start 0 size 33550336
+12->1011 id 13 start 0 size 33550336
+13->1010 id 14 start 0 size 33550336
+14->1009 id 15 start 0 size 33550336
+15->1008 id 16 start 0 size 33550336
+16->1007 id 17 start 0 size 33550336
+17->1006 id 18 start 0 size 33550336
+18->1005 id 19 start 0 size 33550336
+19->1004 id 20 start 0 size 33550336
+20->1003 id 21 start 0 size 33550336
+21->1002 id 22 start 0 size 33550336
+22->1001 id 23 start 0 size 33550336
+23->1000 id 24 start 0 size 33550336
+24->999 id 25 start 0 size 33550336
+25->998 id 26 start 0 size 33550336
+26->997 id 27 start 0 size 33550336
+27->996 id 28 start 0 size 33550336
+28->995 id 29 start 0 size 33550336
+29->994 id 30 start 0 size 33550336
+30->993 id 31 start 0 size 33550336
+31->992 id 32 start 0 size 33550336

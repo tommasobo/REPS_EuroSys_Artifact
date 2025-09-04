@@ -1,0 +1,1 @@
+This folder contains all the results (data and plot) present in the main body of the paper. Note that it is first necessary to generate such results running the scripts in ```./artifact_scripts```

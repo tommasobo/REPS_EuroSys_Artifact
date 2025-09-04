@@ -1,0 +1,24 @@
+Nodes 64
+Tiers 3
+Podsize 16
+
+Tier 0
+Downlink_speed_Gbps 400
+Radix_Down 4
+Radix_Up 4
+Downlink_Latency_ns 1000
+Switch_Latency_ns 0
+
+Tier 1
+Downlink_speed_Gbps 400
+Radix_Down 4
+Radix_Up 4
+Downlink_Latency_ns 1000
+Switch_Latency_ns 0
+
+Tier 2
+Downlink_speed_Gbps 400
+Radix_Down 4
+Downlink_Latency_ns 1000
+Switch_Latency_ns 0
+Bundle 1

@@ -1,0 +1,10 @@
+Nodes 128
+Connections 8
+0->64 start 0 size 16777216
+1->65 start 0 size 16777216
+2->66 start 0 size 16777216
+3->67 start 0 size 16777216
+4->68 start 0 size 16777216
+5->69 start 0 size 16777216
+6->70 start 0 size 16777216
+7->71 start 0 size 16777216

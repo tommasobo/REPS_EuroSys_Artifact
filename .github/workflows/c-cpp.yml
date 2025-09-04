@@ -1,0 +1,35 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y make g++ cmake
+      
+    - name: Install Google Test
+      run: |
+        git clone https://github.com/google/googletest.git -b v1.14.0
+        cd googletest
+        mkdir build
+        cd build
+        cmake ..
+        make -j
+        sudo make install
+        
+    - name: Build project
+      run: cd htsim/sim && make
+
+    - name: Run tests
+      run: cd htsim/sim && make test
