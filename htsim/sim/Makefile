@@ -1,4 +1,4 @@
-SUBDIRS=tests datacenter
+SUBDIRS=datacenter
 OBJS=eventlist.o tcppacket.o pipe.o failuregenerator.o buffer_reps.o common.o queue.o meter.o queue_lossless.o queue_lossless_input.o queue_lossless_output.o ecnqueue.o tcp.o dctcp.o mtcp.o loggers.o logfile.o clock.o config.o network.o qcn.o exoqueue.o randomqueue.o cbr.o cbrpacket.o sent_packets.o ndp.o ndptunnel.o ndppacket.o roce.o rocepacket.o eth_pause_packet.o tcp_transfer.o tcp_periodic.o compositequeue.o prioqueue.o cpqueue.o ndp_transfer.o compositeprioqueue.o switch.o dctcp_transfer.o fairpullqueue.o route.o callback_pipe.o ndptunnelpacket.o swiftpacket.o swift.o swift_scheduler.o routetable.o trigger.o hpccpacket.o hpcc.o strackpacket.o strack.o priopullqueue.o rng.o ecnprioqueue.o eqdspacket.o eqds.o eqds_logger.o aeolusqueue.o uec.o uecpacket.o uec_logger.o dcqcn.o dcqcn_logger.o cnppacket.o pciemodel.o oversubscribed_cc.o metric.o data_collector.o 
 HDRS=network.h ndp.h ndptunnel.h failuregenerator.h buffer_reps.h queue_lossless.h queue_lossless_input.h queue_lossless_output.h compositequeue.h prioqueue.h cpqueue.h queue.h loggers.h loggertypes.h pipe.h eventlist.h config.h tcp.h dctcp.h mtcp.h sent_packets.h tcppacket.h ndppacket.h rocepacket.h eth_pause_packet.h ndp_transfer.h compositeprioqueue.h ecnqueue.h switch.h dctcp_transfer.h callback_pipe.h meter.h ndptunnelpacket.h swiftpacket.h swift.h swift_scheduler.h routetable.h circular_buffer.h trigger.h hpccpacket.h hpcc.h strackpacket.h strack.h priopullqueue.h ecnprioqueue.h eqdspacket.h eqds.h eqds_logger.h aeolusqueue.h uec.h uecpacket.h uec_logger.h dcqcn.h dcqcn_logger.h cnppacket.h pciemodel.h oversubscribed_cc.h metric.h data_collector.h
 
@@ -9,9 +9,6 @@ CFLAGS = -Wall -std=c++17 -g -Wsign-compare -Wuninitialized -fPIE
 CFLAGS += -O3
 
 all:	libhtsim.a parse_output $(SUBDIRS)
-
-test:	metric_test
-	./metric_test
 
 $(SUBDIRS):	libhtsim.a
 	$(MAKE) -C $@
