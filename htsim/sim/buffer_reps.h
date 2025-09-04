@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <cstdint>
 
 template <typename T> class CircularBufferREPS {
   private:
