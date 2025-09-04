@@ -15,6 +15,8 @@ Then compile the project. Run the following command from the ```/htsim/sim``` di
 make clean && cd datacenter/ && make clean && cd .. && make -j 8 && cd datacenter/ && make -j 8 && cd ..
 ```
 
+You might see some warnings during the compilation, it is safe to ignore them for now, we plan on fixing them at a later date.
+
 # Testing the artifacts
 To test the artifacts we provide a series of Bash files that can be run from the ```artifact_scripts/``` directory of the project.
 
@@ -28,3 +30,5 @@ Alternatively, the user can run individual runs using the corresponding Python s
 
 # Results
 Results are automatically generated in the ```artifact_results/``` folder. There, each experiment will have its own subfolder with the plots and raw_data (if applicable).
+
+Please note that minor discrepancies from the submitted version may occur due to hardware or software differences and inherent randomness, despite our efforts to fix all random seeds. Additionally, some plots were manually annotated and enhanced during post-processing.

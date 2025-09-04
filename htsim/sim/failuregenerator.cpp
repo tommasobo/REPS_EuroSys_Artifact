@@ -488,7 +488,8 @@ void failuregenerator::read_failure_list() {
         std::ifstream infile(filename_full);
         // Check if the file is opened successfully
         if (!infile) {
-            std::cerr << "Error opening file!" << std::endl;
+            std::cerr << "Error opening file1!" << std::endl;
+            std::cerr << "File name is: " << filename_full << std::endl;
             exit(0);
         }
         int number;
@@ -528,7 +529,8 @@ void failuregenerator::read_failure_list() {
         std::ifstream infileCable(filename_full_cable);
         // Check if the file is opened successfully
         if (!infileCable) {
-            std::cerr << "Error opening file!" << std::endl;
+            std::cerr << "Error opening file2!" << std::endl;
+            std::cerr << "File name is: " << filename_full_cable << std::endl;
             exit(0);
         }
         int numberCable;
@@ -577,16 +579,20 @@ void failuregenerator::save_failure_list() {
 
     printf("Filename: %s\n", filename_input.c_str());
 
-    std::ofstream outfile;
+    string filename_switch_cable = "../htsim/sim/failures_input/saved/saved_switch" + filename_input;
+
     if (other_loc) {
-        outfile.open("../failures_input/saved/saved_switch" + filename_input);
+        filename_switch_cable = "../failures_input/saved/saved_switch" + filename_input;
     } else {
-        outfile.open("../htsim/sim/failures_input/saved/saved_switch" + filename_input);
+        filename_switch_cable = "../htsim/sim/failures_input/saved/saved_switch" + filename_input;
     }
+
+    std::ofstream outfile(filename_switch_cable);
     
     // Check if the file is opened successfully
     if (!outfile) {
-        std::cerr << "Error opening file!" << std::endl;
+        std::cerr << "Error opening file3!" << std::endl;
+        std::cerr << "file name is: " << filename_switch_cable << std::endl;
         exit(0);
     }
     if (_list_switch_to_fail.size() > 0) {
@@ -617,7 +623,8 @@ void failuregenerator::save_failure_list() {
     printf("Filename: %s\n", cable_filename.c_str());
     // Check if the file is opened successfully
     if (!outfile1) {
-        std::cerr << "Error opening file!" << std::endl;
+        std::cerr << "Error opening file4!" << std::endl;
+        std::cerr << "File name is: " << cable_filename << std::endl;
         exit(0);
     }
     if (_list_cables_to_fail.size() > 0) {

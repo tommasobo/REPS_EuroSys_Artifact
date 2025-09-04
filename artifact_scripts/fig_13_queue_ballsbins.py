@@ -40,7 +40,7 @@ def simulate_packet_spraying_multiple_trials(num_ports, rounds, trials=44, batch
     all_max_queue_sizes = np.zeros((trials, rounds // batch_size))
     
     for trial in range(trials):
-        print(f"Running trial {trial} for {num_ports} ports")
+        #print(f"Running trial {trial} for {num_ports} ports")
         max_queue_sizes = simulate_packet_spraying_optimized(num_ports, rounds, batch_size=batch_size)
         all_max_queue_sizes[trial, :] = max_queue_sizes
     
