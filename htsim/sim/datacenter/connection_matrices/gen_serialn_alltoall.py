@@ -30,12 +30,12 @@ if conns % groupsize != 0:
     print("conns must be a multiple of groupsize\n");
     sys.exit()
 
-print("Nodes: ", nodes)
+""" print("Nodes: ", nodes)
 print("Connections: ", conns)
 print("All-to-all group size: ", groupsize)
 print("Flowsize: ", flowsize, "bytes")
 print("ExtraStartTime: ", extrastarttime, "us")
-print("Random Seed ", randseed)
+print("Random Seed ", randseed) """
 
 f = open(filename, "w")
 print("Nodes", nodes, file=f)
@@ -50,7 +50,7 @@ srcs = []
 dsts = []
 groups = conns // groupsize;
 
-print("Groups ", groups)
+#print("Groups ", groups)
 
 for n in range(nodes):
     srcs.append(n)
@@ -63,17 +63,17 @@ id = 0
 trig_id = 0
 
 for group in range(groups):
-    print("group: ", group)
+    #print("group: ", group)
     groupsrcs = []
 
     for n in range(groupsize):
         groupsrcs.append(srcs[group * groupsize + n])
 
-    print(groupsrcs)
+    #print(groupsrcs)
 
     half = (groupsize-1) // parallel
     left = (groupsize-1) % parallel
-    print("Left is ",str(left),"parallel",parallel,"Conns per node",groupsize-1)
+    #print("Left is ",str(left),"parallel",parallel,"Conns per node",groupsize-1)
 
     for s in range(groupsize):
         for d in range(1, half+1):
@@ -99,7 +99,7 @@ for group in range(groups):
 
                     
                 print(out, file=f)
-                print(groupsrcs[s], "->", groupsrcs[dst])
+                #print(groupsrcs[s], "->", groupsrcs[dst])
 
         if left>0:
             st_trigger = trig_id
@@ -113,7 +113,7 @@ for group in range(groups):
                 out = out + " size " + str(flowsize)
 
                 print(out, file=f)
-                print(groupsrcs[s], "->", groupsrcs[dst])
+                #print(groupsrcs[s], "->", groupsrcs[dst])
 
 
 for t in range(1, trig_id+1):

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-python3 fig_1_symmertic_micro.py
+python3 fig_1_symmetric_micro.py
 python3 fig_2_symmetric.py
-python3 fig_3_asymmertic_micro.py
+python3 fig_3_asymmetric_micro.py
 python3 fig_4_asymmetric.py
 python3 fig_5_bg_traffic.py
 python3 fig_6_failures_micro.py

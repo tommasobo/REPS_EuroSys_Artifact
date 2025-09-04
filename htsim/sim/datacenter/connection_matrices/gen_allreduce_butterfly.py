@@ -29,10 +29,10 @@ randseed = int(sys.argv[7])
 
 conns = groups * groupsize * int(math.log(groupsize,2))
 
-print("Connections: ", conns)
+""" print("Connections: ", conns)
 print("All-reduce group size: ", groupsize)
 print("Flowsize: ", flowsize, "bytes")
-print("Random Seed ", randseed)
+print("Random Seed ", randseed) """
 
 f = open(filename, "w")
 print("Nodes", nodes, file=f)
@@ -43,7 +43,7 @@ srcs = []
 dsts = []
 trigger_ids = [] 
 
-print("Groups ", groups)
+#print("Groups ", groups)
 
 for n in range(nodes):
     srcs.append(n)
@@ -55,17 +55,13 @@ id = 0
 
 trig_id = 0
 for group in range(groups):
-    print("group: ", group)
+    #print("group: ", group)
     groupsrcs = []
     for n in range(groupsize):
         groupsrcs.append(srcs[group * groupsize + n])
 
     if (locality==1):
         groupsrcs.sort()
-
-    print(groupsrcs)
-
-    print (" ")
 
     for d in range(0, int(math.log(groupsize,2))):
         step = pow(2,d)
@@ -79,7 +75,7 @@ for group in range(groups):
 
         last_step = (d==int(math.log(groupsize,2)-1))
             
-        print ("Step",str(step))
+        #print ("Step",str(step))
         for src in range(0,groupsize):
             if ( int(src/step)%2==0 ):
                 dst = src + step
@@ -104,7 +100,7 @@ for group in range(groups):
 
                 out = out + rest
                 print(out, file=f)
-                print(out)
+                #print(out)
 
                 id += 1
 
@@ -127,9 +123,9 @@ for group in range(groups):
                 out = out + rest
                 
                 print(out, file=f)
-                print(out)
+                #print(out)
 
-                print()
+                #print()
                 
             else:
                 continue

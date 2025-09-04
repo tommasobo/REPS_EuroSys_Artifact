@@ -103,7 +103,7 @@ for collective in os.listdir(main_folder):
             
             # Read the content of the log file
             with open(file_path, 'r') as file:
-                print(file_path)
+                #print(file_path)
                 # "reduce" not in file_path
                 if (True):
                     log_content = file.read()
