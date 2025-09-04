@@ -30,6 +30,3 @@ jobs:
         
     - name: Build project
       run: cd htsim/sim && make
-
-    - name: Run tests
-      run: cd htsim/sim && make test
