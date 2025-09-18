@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 """ A script to generate traffic based on a given empirical CDF. """
+from __future__ import annotations
 
 import argparse
 import random

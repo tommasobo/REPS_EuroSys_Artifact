@@ -21,6 +21,7 @@ idmap.txt
 !requirements.txt
 !failures_input/
 !failures_input/**/*.txt
+!traffic_gen/cdf_files/*.txt
 
 FINAL_OS_RUN_ASYMsymm_notrim_coll
 FINAL_OS_RUN_ASYMasy_notrim_dc
@@ -29,3 +30,4 @@ FINAL_OS_RUN_SYMMsymm_notrim_dc
 FINAL_OS_RUN_SYMMsymm_notrim_synth
 tests
 dc
+artifact_results_backup

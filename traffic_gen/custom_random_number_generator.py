@@ -1,5 +1,6 @@
 """ A library defining a custom random number generator based on a 
 user-defined cumulative distribution function (CDF). """
+from __future__ import annotations
 
 import random
 from collections import namedtuple

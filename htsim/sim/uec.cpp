@@ -2799,12 +2799,12 @@ void UecSrc::rtxTimerExpired() {
         if (_trim_disbled && _last_rto_max_rtt < _base_rtt * 1.65) {
             circular_buffer_reps->setFrozenMode(true);
             circular_buffer_reps->can_exit_frozen_mode = eventlist().now() +  circular_buffer_reps->exit_freeze_after;
-            printf("%s started freezing mode1 at %lu (can exit at %lu) - %d\n", _name.c_str(), eventlist().now() / 1000, circular_buffer_reps->can_exit_frozen_mode / 1000, circular_buffer_reps->isFrozenMode()); 
+            printf("%s started freezing mode1 at %lu (can exit at %lu) - %d - Size Buffer %d\n", _name.c_str(), eventlist().now() / 1000, circular_buffer_reps->can_exit_frozen_mode / 1000, circular_buffer_reps->isFrozenMode(), circular_buffer_reps->getSize()); 
             printf("Last Max RTT %lu - RTO Start %lu - Time is %lu - Base RTT is %lu -- Max %lu at %lu\n", _last_rto_max_rtt/1000, _last_rto_start/1000, eventlist().now()/1000, _base_rtt/1000, _max_rtt_seen/1000, _when__max_rtt_seen/1000);
         } else if (!_trim_disbled) {
             circular_buffer_reps->setFrozenMode(true);
             circular_buffer_reps->can_exit_frozen_mode = eventlist().now() +  circular_buffer_reps->exit_freeze_after;
-            printf("%s started freezing mode2 at %lu (can exit at %lu) - Explore Counter %d - %d\n", _name.c_str(), eventlist().now() / 1000, circular_buffer_reps->can_exit_frozen_mode / 1000, circular_buffer_reps->explore_counter, circular_buffer_reps->isFrozenMode()); 
+            printf("%s started freezing mode2 at %lu (can exit at %lu) - Explore Counter %d - %d - Size Buffer %d\n", _name.c_str(), eventlist().now() / 1000, circular_buffer_reps->can_exit_frozen_mode / 1000, circular_buffer_reps->explore_counter, circular_buffer_reps->isFrozenMode(), circular_buffer_reps->getSize()); 
         }   
     }
 

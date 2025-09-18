@@ -16,4 +16,8 @@ load = ["40", "60", "80", "100"]
 
 for load_value in load:
     load_num = int(load_value) / 100
-    os.system(f"python ../../../traffic_gen/traffic_gen.py -n {nodes_to_use} -c ../../../traffic_gen/cdf_files/{file_to_use} -l {load_num} -b 400G -t 0 -d {duration} -s 42 -o connection_matrices/{load_value}load.cm")
+    output_file = os.path.join("connection_matrices", f"{load_value}load.cm")
+    if os.path.exists(output_file):
+        continue
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    os.system(f"python ../../../traffic_gen/traffic_gen.py -n {nodes_to_use} -c ../../../traffic_gen/cdf_files/{file_to_use} -l {load_num} -b 400G -t 0 -d {duration} -s 42 -o {output_file}")
