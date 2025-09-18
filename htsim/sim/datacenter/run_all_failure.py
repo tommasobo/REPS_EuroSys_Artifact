@@ -36,11 +36,11 @@ if "dc" in args.filename:
     if not plot_only:
         os.system(f"python3 ../../../traffic_gen/gen_files_remote.py --duration 0.0035 --size_topo {topolgy_size}")
         os.system("rm -rf ../failures_input/saved/*")
-        os.system(f"python3 run_failures.py --cache on --trim off --cm connection_matrices/100load.cm --size_topo {topolgy_size} --output_folder {output_folder}fail_notrim_dc")
-        os.system(f"python3 run_failures.py --trim off --cm connection_matrices/100load.cm --size_topo {topolgy_size} --output_folder {output_folder}fail_notrim_dc")
+        os.system(f"python3 run_failures.py --cache on --trim off --cm connection_matrices/100load_32.cm --size_topo {topolgy_size} --output_folder {output_folder}fail_notrim_dc")
+        os.system(f"python3 run_failures.py --trim off --cm connection_matrices/100load_32.cm --size_topo {topolgy_size} --output_folder {output_folder}fail_notrim_dc")
         print("DC No Trimming Done")
         # DC Trimming
-        """ os.system(f"python3 run_failures.py --trim on --cm connection_matrices/100load.cm --size_topo {topolgy_size} --output_folder {output_folder}fail_yestrim_dc")
+        """ os.system(f"python3 run_failures.py --trim on --cm connection_matrices/100load_32.cm --size_topo {topolgy_size} --output_folder {output_folder}fail_yestrim_dc")
         print("DC Trimming Done") """
     # Plotting
     tmp_filename = filename + "_" + "notrim"

@@ -16,7 +16,10 @@ load = ["40", "60", "80", "100"]
 
 for load_value in load:
     load_num = int(load_value) / 100
-    output_file = os.path.join("connection_matrices", f"{load_value}load.cm")
+    if (nodes_to_use > 32):
+        output_file = os.path.join("connection_matrices", f"{load_value}load.cm")
+    else:
+        output_file = os.path.join("connection_matrices", f"{load_value}load_32.cm")
     if os.path.exists(output_file):
         continue
     os.makedirs(os.path.dirname(output_file), exist_ok=True)

@@ -42,16 +42,16 @@ file_size = 33554432
 ideal_fct_0 = (file_size * 8 / 400 / 1000) + 20 
 
 # Clean Up previous failed cables, create new list for this sim
-os.system("rm ../htsim/sim/failures_input/saved/saved_cable10_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_switch10_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_cable20_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_switch20_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_cable30_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_switch30_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_cable40_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_switch40_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_cable50_percent_failed_cables.txt")
-os.system("rm ../htsim/sim/failures_input/saved/saved_switch50_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_cable10_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_switch10_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_cable20_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_switch20_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_cable30_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_switch30_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_cable40_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_switch40_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_cable50_percent_failed_cables.txt")
+os.system("rm -rf ../htsim/sim/failures_input/saved/saved_switch50_percent_failed_cables.txt")
 
 fail_0_run = f"../htsim/sim/datacenter/htsim_uec -sack_threshold 4000 -end 90000 -seed 44 -paths 65535 -sender_cc_only -sender_cc_algo mprdma -topo ../htsim/sim/datacenter/topologies/reps/fat_tree_1024_1os_2t_400g.topo -linkspeed 400000 -ecn 20 80 -q 100 -cwnd 151 -tm ../htsim/sim/datacenter/connection_matrices/perm_n1024_s33554432.cm -load_balancing_algo freezing -exit_freeze {EXIT_FREEZE} > ../artifact_results/fig_8_extreme_failures/data/fail_0.out"
 fail_10_run = f"../htsim/sim/datacenter/htsim_uec -failures_input ../htsim/sim/failures_input/10_percent_failed_cables.txt -sack_threshold 4000 -end 90000 -seed 44 -paths 65535 -sender_cc_only -sender_cc_algo mprdma -topo ../htsim/sim/datacenter/topologies/reps/fat_tree_1024_1os_2t_400g.topo -linkspeed 400000 -ecn 20 80 -q 100 -cwnd 151 -tm ../htsim/sim/datacenter/connection_matrices/perm_n1024_s33554432.cm -load_balancing_algo freezing -exit_freeze {EXIT_FREEZE} > ../artifact_results/fig_8_extreme_failures/data/fail_10.out"
