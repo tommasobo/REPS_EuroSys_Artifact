@@ -5,6 +5,19 @@ import pandas as pd
 import matplotlib
 import numpy as np
 import os
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message=r".*Tight layout not applied.*",
+    category=UserWarning,
+)
+
+warnings.filterwarnings(
+    "ignore",
+    message=r".*FixedFormatter.*FixedLocator.*",
+    category=UserWarning,
+)
 
 matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42

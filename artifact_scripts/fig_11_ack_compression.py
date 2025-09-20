@@ -5,6 +5,19 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import matplotlib
 import concurrent.futures
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message=r".*Tight layout not applied.*",
+    category=UserWarning,
+)
+
+warnings.filterwarnings(
+    "ignore",
+    message=r".*FixedFormatter.*FixedLocator.*",
+    category=UserWarning,
+)
 
 matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42

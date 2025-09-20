@@ -35,5 +35,4 @@ cmd = (
     f"--input_folder_exp {output_folder}symm_notrim_synth "
     f"--name notrim --dont_show --save_folder {save_folder} --filename {filename}"
 )
-print(cmd)
 os.system(cmd)

@@ -19,8 +19,6 @@ idmap.txt
 
 !LICENSE-Transport-WG.txt
 !requirements.txt
-!failures_input/
-!failures_input/**/*.txt
 !traffic_gen/cdf_files/*.txt
 
 FINAL_OS_RUN_ASYMsymm_notrim_coll
@@ -33,3 +31,4 @@ dc
 artifact_results_backup
 failures_input/saved
 failures_input/saved_alternative
+!saved/README
