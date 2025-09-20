@@ -6,6 +6,7 @@ import os
 parser = argparse.ArgumentParser(description='Read and parse a JSON file containing experiments.')
 parser.add_argument('--output_folder', required=False, help='Parent output folder where to save all results', default="experiments")
 parser.add_argument('--trim', required=False, help='Trim Active Or not', default="on")
+parser.add_argument('--ae_runs', required=False, help='Use AE version which runs', default=True)
 parser.add_argument('--size_topo', type=int, required=True, help='Size Topo', default=128)
 parser.add_argument('--asymmetry_links', type=int, required=False, help='Num downgraded links', default=0)
 args = parser.parse_args()
@@ -67,6 +68,9 @@ def run_command(cmd):
 with concurrent.futures.ThreadPoolExecutor(max_workers=parallel_degree) as executor:
     # Loop over each traffic matrix and load balancing algorithm
     for tm in traffic_matrices:
+        tm_filename = tm
+        if args.ae_runs:
+                tm_filename = tm.replace("load", "load_ae")
         load_percentage = extract_load_from_tm(tm)
         
         for algo in load_balancing_algos:
@@ -82,6 +86,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=parallel_degree) as execu
                 evs = 256
             else:
                 evs = 65535
+            
             base_command = base_command.format(trim=trim_s, failed=failed_s, paths=evs, size=topology_size)
-            command = f"{base_command} {extra} -tm {tm} -load_balancing_algo {algo} > {output_file}"
+            command = f"{base_command} {extra} -tm {tm_filename} -load_balancing_algo {algo} > {output_file}"
             executor.submit(run_command, command)

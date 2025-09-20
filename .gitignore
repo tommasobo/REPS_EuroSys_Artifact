@@ -15,6 +15,7 @@ idmap.txt
 *_test
 *.txt
 .vscode
+.venv/
 *.tmp
 
 !LICENSE-Transport-WG.txt

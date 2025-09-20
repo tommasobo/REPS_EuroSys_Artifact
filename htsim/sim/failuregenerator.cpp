@@ -712,6 +712,8 @@ bool failuregenerator::fail_new_cable(Pipe *p) {
 
     uint64_t failureTime = GLOBAL_TIME;
     uint64_t recoveryTime = GLOBAL_TIME + generateTimeCable();
+    // We fix this to avoid randomness, 
+    recoveryTime = failureTime + 100000000000000;
 
     temp_failingCables = failingCables;
     temp_failingCables[cable_id] = std::make_pair(failureTime, recoveryTime);

@@ -35,8 +35,8 @@ All experiments were run locally on Ubuntu 22.04 LTS using WSL 2. The project re
 To test the artifacts we provide a series of Bash files that can be run from the ```artifact_scripts/``` directory of the project.
 
 - ```reps_quick.sh``` which runs quickly (less than 2 hours) and generates Figure 1, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14.
-- ```reps_medium.sh``` which runs slower (around 6 hours) and generates Figure 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14.
-- ```reps_full.sh``` which runs all the experiments of the paper but takes very long (potentially up to a day).
+- ```reps_medium.sh``` which runs slower (around 4 hours) and generates Figure 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14.
+- ```reps_full.sh``` which runs all the experiments of the paper but takes very long (around 10 hours).
 
 Exact running times depend on HW performance.
 
