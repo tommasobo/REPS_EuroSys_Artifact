@@ -31,3 +31,5 @@ FINAL_OS_RUN_SYMMsymm_notrim_synth
 tests
 dc
 artifact_results_backup
+failures_input/saved
+failures_input/saved_alternative
