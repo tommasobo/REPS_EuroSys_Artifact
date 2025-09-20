@@ -1,6 +1,6 @@
 # Traffic Generator Script
 
-The `traffic_gen.py` script is designed to simulate network traffic based on a given set of parameters. It utilizes the `custom_random_number_generator` library to generate random numbers following a specified distribution, aiding in the creation of realistic network traffic patterns based on observed data.
+The `traffic_gen.py` script is designed to simulate network traffic based on a given set of parameters. It utilizes the `custom_random_number_generator` library to generate random numbers following a specified distribution, aiding in the creation of realistic network traffic patterns based on observed data. The connection matrices are available to be used with ```htsim``` but can be potentially be adapted for other simulators.
 
 ## Getting Started
 
