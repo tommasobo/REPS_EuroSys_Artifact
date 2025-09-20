@@ -38,7 +38,7 @@ To test the artifacts we provide a series of Bash files that can be run from the
 - ```reps_medium.sh``` which runs slower (around 4 hours) and generates Figure 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14.
 - ```reps_full.sh``` which runs all the experiments of the paper but takes very long (around 10 hours).
 
-Exact running times depend on HW performance.
+Exact running times depend on HW performance. The values provided here are based on a system with a Intel  i7-11700 CPU and 40GB of RAM.
 
 Alternatively, the user can run individual runs using the corresponding Python script from inside the ```artifact_scripts/``` folder.
 
